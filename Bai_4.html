@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai_4</title>
+</head>
+<body>
+<p>Tìm giá trị lớn nhất trong 3 số nhập vào a,b,c:</p>
+<input id="number_a" type="number" placeholder="Nhập vào số nguyên a" style="margin-bottom: 10px; width: 200px"><br>
+<input id="number_b" type="number" placeholder="Nhập vào số nguyên b" style="margin-bottom: 10px; width: 200px"><br>
+<input id="number_c" type="number" placeholder="Nhập vào số nguyên c" style="margin-bottom: 10px; width: 200px"><br>
+<button id="btn">Kiểm tra</button>
+<p id="result"></p>
+</body>
+</html>
+<script>
+    let btn = document.getElementById('btn');
+    let result = document.getElementById('result');
+    btn.addEventListener('click', on_click)
+
+    function on_click() {
+        let a = +document.getElementById('number_a').value;
+        let b = +document.getElementById('number_b').value;
+        let c = +document.getElementById('number_c').value;
+        if (Number.isInteger(a) && Number.isInteger(b) && Number.isInteger(c)) {
+            if (b > a) {
+                if (c > b) {
+                    result.innerHTML = `Số lớn nhất là ${c}`;
+                } else
+                    result.innerHTML = `Số lớn nhất là ${b}`;
+            } else if (c > a) {
+                result.innerHTML = `Số lớn nhất là ${c}`;
+            } else
+                result.innerHTML = `Số lớn nhất là ${a}`;
+        } else
+            result.innerHTML = `Vui lòng nhập lại`;
+    }
+</script>

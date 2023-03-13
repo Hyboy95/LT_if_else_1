@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai_1</title>
+</head>
+<body>
+<p>Kiểm tra xem a có chia hết cho b không:</p>
+<input id="number_a" type="number" placeholder="Nhập vào số nguyên a" style="margin-bottom: 10px"><br>
+<input id="number_b" type="number" placeholder="Nhập vào số nguyên b" style="margin-bottom: 10px"><br>
+<button id="btn">Kiểm tra</button>
+<p id="result"></p>
+</body>
+</html>
+<script>
+  btn = document.getElementById('btn');
+  result = document.getElementById('result');
+  btn.addEventListener('click', on_click)
+
+  function on_click() {
+    let a_value = document.getElementById('number_a').value;
+    let b_value = document.getElementById('number_b').value;
+    a = Number(a_value);
+    b = Number(b_value);
+    if (Number.isInteger(a) &&  Number.isInteger(b) && b !== 0) {
+      if (a % b === 0) {
+        result.innerHTML = `${a} chia hết cho ${b}`;
+      } else
+        result.innerHTML = `${a} không chia hết cho ${b}`;
+    } else
+      result.innerHTML = `Không hợp lệ, vui lòng nhập lại`;
+  }
+</script>

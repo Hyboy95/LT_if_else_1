@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai_6</title>
+</head>
+<body>
+<p>Tính hoa hồng nhận được dựa theo doanh số bán hàng:</p>
+<input id="product_number" type="number" placeholder="Nhập vào doanh số sản phẩm bán được trong tháng" style="margin-bottom: 10px; width: 250px"><br>
+<input id="product_value" type="number" placeholder="Nhập vào giá trị mỗi sản phẩm bán được trong tháng (VND)" style="margin-bottom: 10px; width: 250px"><br>
+<button id="btn">Kiểm tra</button>
+<p id="result"></p>
+</body>
+</html>
+<script>
+  let btn = document.getElementById('btn');
+  let result = document.getElementById('result');
+  btn.addEventListener('click', function () {
+    let product_number = +document.getElementById('product_number').value;
+    let product_value = +document.getElementById('product_value').value;
+    if (Number.isInteger(product_number) && product_number > 0) {
+      let rose = product_number * product_value;
+      let a = 0;
+      if (product_number >= 1000) {
+        a = 5 / 100;
+        result.innerHTML = `Hoa hồng nhận được là ${rose * a} VND `;
+      } else if (product_number >= 600) {
+        a = 3 / 100;
+        result.innerHTML = `Hoa hồng nhận được là ${rose * a} VND`;
+      } else if (product_number >= 300) {
+        a = 1.5 / 100;
+        result.innerHTML = `Hoa hồng nhận được là ${rose * a} VND`;
+      } else
+        a = 1.0 / 100;
+      result.innerHTML = `Hoa hồng nhận được là ${rose * a} VND`;
+    } else
+      result.innerHTML = "Vui lòng nhập lại";
+  })
+</script>

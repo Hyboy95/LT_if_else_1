@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai_7</title>
+</head>
+<body>
+<p>Tính tiền cước điện thoại phải trả:</p>
+<input id="e_number" type="text" placeholder="Nhập vào số phút đã gọi trong tháng (phút)">
+<button id="btn">Kiểm tra</button>
+<p id="e_money"></p>
+</body>
+</html>
+<script>
+
+  let btn = document.getElementById("btn");
+  let e_money = document.getElementById("e_money");
+  btn.addEventListener('click', on_click)
+
+  function on_click() {
+    let e_number = +document.getElementById('e_number').value;
+    let step_1 = 2500;
+    let step_2 = 2200;
+    let step_3 = 1900;
+    let step_4 = 1600;
+    let step_5 = 1300;
+    let step_6 = 1000;
+    if (Number.isInteger(e_number) && (e_number > 0)) {
+      if (e_number > 500) {
+        e_money.innerHTML = `Số tiền cước điện thoại phải trả là : ${e_number * step_6} VND`;
+      } else if (e_number > 400) {
+        e_money.innerHTML = `Số tiền cước điện thoại phải trả là : ${e_number * step_5} VND`;
+      } else if (e_number > 300) {
+        e_money.innerHTML = `Số tiền cước điện thoại phải trả là : ${e_number * step_4} VND`;
+      } else if (e_number > 200) {
+        e_money.innerHTML = `Số tiền cước điện thoại phải trả là : ${e_number * step_3} VND`;
+      } else if (e_number > 100) {
+        e_money.innerHTML = `Số tiền cước điện thoại phải trả là : ${e_number * step_2} VND`;
+      } else
+        e_money.innerHTML = `Số tiền cước điện thoại phải trả là : ${e_number * step_1} VND`;
+    } else
+      e_money.innerHTML = "Không hợp lệ, vui lòng nhập lại";
+  }
+</script>

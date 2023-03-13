@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai_5</title>
+</head>
+<body>
+<p>Xếp hạng học lực của học sinh dựa trên điểm bài kiểm tra, điểm thi giữa kì, điểm thi học kì:</p>
+<input id="exam_point" type="number" placeholder="Nhập vào điểm bài kiểm tra" style="margin-bottom: 10px; width: 200px"><br>
+<input id="mid_exam_point" type="number" placeholder="Nhập vào điểm kiểm tra giữa kỳ" style="margin-bottom: 10px; width: 200px"><br>
+<input id="final_exam_point" type="number" placeholder="Nhập vào điểm kiểm tra cuối kỳ" style="margin-bottom: 10px; width: 200px"><br>
+<button id="btn">Kiểm tra</button>
+<p id="result"></p>
+</body>
+</html>
+<script>
+  let btn = document.getElementById('btn');
+  let result = document.getElementById('result');
+  btn.addEventListener('click', on_click)
+
+  function on_click() {
+    let a = +document.getElementById('exam_point').value;
+    let b = +document.getElementById('mid_exam_point').value;
+    let c = +document.getElementById('final_exam_point').value;
+    if ((a >= 0 && a <= 10) && (b >= 0 && b <= 10) && (c >= 0 && c <= 10)) {
+      let avg_point = (a + b + c) / 3 ;
+      if (avg_point >= 8.5) {
+        result.innerHTML = `Học sinh giỏi`;
+      } else if (avg_point >= 6.5) {
+        result.innerHTML = `Học sinh khá`;
+      } else if (avg_point >= 4.5) {
+        result.innerHTML = `Học sinh TB`;
+      } else if (avg_point >= 3.5) {
+        result.innerHTML = `Học sinh yếu`;
+      } else
+        result.innerHTML = `Học sinh kém`;
+    } else
+      result.innerHTML = `Vui lòng nhập lại`;
+  }
+</script>

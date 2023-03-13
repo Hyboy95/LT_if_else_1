@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai_2</title>
+</head>
+<body>
+<p>Kiểm tra xem học sinh đủ điều kiện vào lớp 10 không:</p>
+<input id="age" type="number" placeholder="Nhập vào số tuổi của học sinh" style="margin-bottom: 10px; width: 250px"><br>
+<button id="btn">Kiểm tra</button>
+<p id="result"></p>
+</body>
+</html>
+<script>
+  let btn = document.getElementById('btn');
+  let result = document.getElementById('result');
+  btn.addEventListener('click', on_click)
+
+  function on_click() {
+    let age = +document.getElementById('age').value;
+    if (Number.isInteger(age)) {
+      if ((age < 16) && (age > 0)) {
+        result.innerHTML = `Học sinh ${age} tuổi không đủ điều kiện vào lớp 10`;
+      } else
+        result.innerHTML = `Học sinh ${age} tuổi đủ điều kiện vào lớp 10`;
+
+    } else
+      result.innerHTML = `Vui lòng nhập lại`;
+  }
+</script>
